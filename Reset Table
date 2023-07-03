@@ -1,0 +1,17 @@
+Sub FormatTable(oTable as Table)
+  Dim oCell As Cell
+  Dim ThisRow As Integer
+  Set oTable = ActivePresentation.Slides(1).Shapes(1).Table
+  For ThisRow = 1 To oTable.Rows.Count
+    For Each oCell In oTable.Rows(ThisRow).Cells
+      With oCell.Shape.TextFrame
+        .MarginTop = 1
+        .MarginRight = 1
+        .MarginBottom = 1
+        .MarginLeft = 1
+        .HorizontalAnchor = msoAnchorCenter
+        .VerticalAnchor = msoAnchorMiddle
+      End With
+    Next oCell
+  Next ThisRow
+End Sub
